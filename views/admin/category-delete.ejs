@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %> 
+</head>
+<body>
+    <%- include("../partials/nav") %> 
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                        Kategoriyi Sil
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">
+                            <b><%= category.name %></b> isimli kategoriyi silmek istediğinize emin misiniz?
+                        </p>
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger">Evet, Sil</button>
+                            <a href="/admin/categories" class="btn btn-secondary">Vazgeç</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %> 
+</head>
+<body>
+    
+    <%- include("../partials/nav") %> 
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <% if (action == "edit" && categoryid) { %>
+                 <div class="alert alert-success">
+                    <%= categoryid %> id numaralı kategori güncellendi.
+                 </div>
+                <% } %>
+                
+                <% if (action == "create") { %>
+                 <div class="alert alert-success">
+                    Kategori Oluşturuldu.
+                 </div>
+                <% } %>
+                
+                <% if (action == "delete") { %>
+                 <div class="alert alert-warning">
+                    Kategori Silindi.
+                 </div>
+                <% } %>
+                
+                <table class="table table-bordered table-stripped">
+                    <thead>
+                        <tr>
+                            <th style="width: 50;">id</th>
+                            <th >name</th>
+                            <th style="width: 130;">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach(category => { %>
+                            <tr>
+                                <td><%= category.categoryid %></td>
+                                <td><%= category.name %></td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" href="/admin/categories/<%= category.categoryid %>">Edit</a>
+
+<a class="btn btn-sm btn-danger" href="/admin/categories/delete/<%= category.categoryid %>">Delete</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
